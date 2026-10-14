@@ -1,0 +1,3372 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Universitas Bhinneka PGRI</title>
+
+    <style>
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #172033;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea {
+            font-family: inherit;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+
+            background: rgba(255,255,255,.92);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid #e7edf5;
+        }
+
+        .navbar {
+            height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 46px;
+            height: 46px;
+
+            display: grid;
+            place-items: center;
+
+            color: white;
+
+            font-size: 15px;
+            font-weight: 900;
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1d4ed8,
+                    #06b6d4
+                );
+
+            box-shadow:
+                0 8px 20px
+                rgba(37,99,235,.2);
+        }
+
+        .logo-text strong {
+            display: block;
+
+            color: #07152f;
+
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        .logo-text span {
+            display: block;
+
+            margin-top: 5px;
+
+            color: #718096;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* NAVIGATION */
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-menu a {
+            color: #526075;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition: .25s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #2563eb;
+        }
+
+
+        /* MOBILE */
+
+        .menu-toggle {
+            display: none;
+
+            border: 0;
+
+            background: none;
+
+            font-size: 28px;
+
+            color: #07152f;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 760px;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(6,182,212,.25),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 15% 30%,
+                    rgba(37,99,235,.15),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #f8fbff,
+                    #edf6ff
+                );
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            right: -230px;
+            top: -180px;
+
+            border-radius: 50%;
+
+            border: 100px solid
+                rgba(37,99,235,.05);
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            left: -100px;
+            bottom: -80px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(6,182,212,.08);
+        }
+
+        .grid-background {
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    rgba(37,99,235,.05) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(37,99,235,.05) 1px,
+                    transparent 1px
+                );
+
+            background-size: 55px 55px;
+
+            opacity: .7;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+
+            padding-top: 70px;
+        }
+
+        .hero-text {
+            max-width: 780px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+
+            align-items: center;
+
+            padding: 8px 15px;
+
+            border-radius: 50px;
+
+            background: #e6f2ff;
+
+            color: #2563eb;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: .5px;
+        }
+
+        .hero h1 {
+            margin-top: 22px;
+
+            color: #07152f;
+
+            font-size:
+                clamp(45px, 6vw, 76px);
+
+            line-height: 1.02;
+
+            letter-spacing: -3px;
+        }
+
+        .hero h1 span {
+            display: block;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #06b6d4
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 650px;
+
+            margin: 25px 0 32px;
+
+            color: #64748b;
+
+            font-size: 16px;
+        }
+
+
+        /* HERO BUTTON */
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 13px 21px;
+
+            border-radius: 12px;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            transition: .25s;
+
+            cursor: pointer;
+
+            border: 0;
+        }
+
+        .btn-primary {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #1d4ed8
+                );
+
+            box-shadow:
+                0 12px 25px
+                rgba(37,99,235,.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 17px 30px
+                rgba(37,99,235,.28);
+        }
+
+        .btn-outline {
+            color: #1d4ed8;
+
+            background: white;
+
+            border: 1px solid #d9e4f2;
+        }
+
+        .btn-outline:hover {
+            transform: translateY(-3px);
+
+            border-color: #93b4e7;
+        }
+
+
+        /* HERO DECORATION */
+
+        .hero-decoration {
+            position: absolute;
+
+            right: 8%;
+            top: 160px;
+
+            width: 370px;
+            height: 370px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 35% 30%,
+                    #67e8f9,
+                    rgba(37,99,235,.25) 55%,
+                    transparent 70%
+                );
+
+            opacity: .9;
+        }
+
+        .hero-card {
+            position: absolute;
+
+            right: 7%;
+            top: 205px;
+
+            width: 420px;
+
+            padding: 22px;
+
+            border-radius: 25px;
+
+            background:
+                rgba(255,255,255,.75);
+
+            backdrop-filter: blur(18px);
+
+            border:
+                1px solid
+                rgba(255,255,255,.9);
+
+            box-shadow:
+                0 30px 70px
+                rgba(31,64,120,.22);
+
+            transform: rotate(2deg);
+        }
+
+        .browser-bar {
+            display: flex;
+
+            gap: 6px;
+
+            margin-bottom: 15px;
+        }
+
+        .browser-dot {
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: #cbd5e1;
+        }
+
+        .dashboard {
+            min-height: 260px;
+
+            padding: 22px;
+
+            border-radius: 18px;
+
+            background: #07152f;
+
+            color: white;
+        }
+
+        .dashboard-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 25px;
+        }
+
+        .dashboard-title {
+            font-size: 14px;
+
+            font-weight: 800;
+        }
+
+        .dashboard-badge {
+            padding: 5px 9px;
+
+            border-radius: 50px;
+
+            background:
+                rgba(255,255,255,.1);
+
+            color: #67e8f9;
+
+            font-size: 9px;
+        }
+
+        .chart {
+            height: 110px;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            gap: 10px;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.1);
+        }
+
+        .bar {
+            flex: 1;
+
+            border-radius:
+                7px 7px 2px 2px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #38bdf8,
+                    #2563eb
+                );
+        }
+
+        .dashboard-cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 8px;
+
+            margin-top: 15px;
+        }
+
+        .dashboard-mini {
+            padding: 10px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(255,255,255,.07);
+        }
+
+        .dashboard-mini strong {
+            font-size: 14px;
+        }
+
+        .dashboard-mini span {
+            display: block;
+
+            margin-top: 2px;
+
+            color: #9fb0ca;
+
+            font-size: 8px;
+        }
+
+        .floating-card {
+            position: absolute;
+
+            right: 31%;
+
+            top: 490px;
+
+            z-index: 10;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 13px 16px;
+
+            background: white;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 15px 35px
+                rgba(31,64,120,.15);
+        }
+
+        .floating-icon {
+            width: 38px;
+            height: 38px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 11px;
+
+            background: #e8f7ff;
+
+            color: #0284c7;
+        }
+
+        .floating-card strong {
+            display: block;
+
+            color: #07152f;
+
+            font-size: 11px;
+        }
+
+        .floating-card span {
+            color: #718096;
+
+            font-size: 9px;
+        }
+
+        .hero-scroll {
+            position: absolute;
+
+            bottom: 22px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            z-index: 10;
+
+            color: #8190a7;
+
+            font-size: 9px;
+
+            text-align: center;
+        }
+
+        .hero-scroll span {
+            display: block;
+        }
+
+
+        /* =====================================================
+           STATS
+        ===================================================== */
+
+        .stats {
+            position: relative;
+
+            z-index: 20;
+
+            margin-top: -45px;
+        }
+
+        .stats-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            overflow: hidden;
+
+            background: white;
+
+            border:
+                1px solid #e5ebf3;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 20px 55px
+                rgba(38,69,110,.12);
+        }
+
+        .stat-card {
+            padding: 25px;
+
+            text-align: center;
+
+            border-right:
+                1px solid #edf1f6;
+        }
+
+        .stat-card:last-child {
+            border-right: none;
+        }
+
+        .stat-icon {
+            margin-bottom: 6px;
+
+            font-size: 22px;
+        }
+
+        .stat-card strong {
+            display: block;
+
+            color: #07152f;
+
+            font-size: 27px;
+        }
+
+        .stat-card span {
+            color: #718096;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           SECTION
+        ===================================================== */
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-light {
+            background: #f7faff;
+        }
+
+        .section-heading {
+            max-width: 700px;
+
+            margin-bottom: 45px;
+        }
+
+        .section-heading.center {
+            margin-left: auto;
+            margin-right: auto;
+
+            text-align: center;
+        }
+
+        .section-heading > span {
+            color: #2563eb;
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            letter-spacing: 1.7px;
+        }
+
+        .section-heading h2 {
+            margin-top: 8px;
+
+            color: #07152f;
+
+            font-size: 40px;
+
+            line-height: 1.15;
+
+            letter-spacing: -1.5px;
+        }
+
+        .section-heading h2 em {
+            color: #2563eb;
+
+            font-style: normal;
+        }
+
+        .section-heading p {
+            margin-top: 15px;
+
+            color: #64748b;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           PROFILE
+        ===================================================== */
+
+        .profile-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .profile-image {
+            min-height: 430px;
+
+            padding: 20px;
+
+            border-radius: 28px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #07152f,
+                    #1d4ed8
+                );
+
+            box-shadow:
+                0 25px 60px
+                rgba(37,99,235,.2);
+        }
+
+        .image-box {
+            height: 100%;
+
+            min-height: 390px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            border:
+                1px solid
+                rgba(255,255,255,.15);
+
+            border-radius: 20px;
+
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(6,182,212,.25),
+                    transparent 60%
+                );
+        }
+
+        .building-icon {
+            font-size: 80px;
+
+            margin-bottom: 20px;
+        }
+
+        .image-box h3 {
+            font-size: 24px;
+        }
+
+        .image-box p {
+            color: #b9c8df;
+
+            font-size: 13px;
+        }
+
+        .profile-content h3 {
+            margin-top: 10px;
+
+            color: #07152f;
+
+            font-size: 30px;
+
+            line-height: 1.2;
+        }
+
+        .profile-content p {
+            margin-top: 17px;
+
+            color: #64748b;
+
+            font-size: 14px;
+        }
+
+        .small-title {
+            color: #2563eb;
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            letter-spacing: 1.5px;
+        }
+
+        .check-list {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 12px;
+
+            margin: 25px 0;
+        }
+
+        .check-list div {
+            color: #344258;
+
+            font-size: 13px;
+
+            font-weight: 650;
+        }
+
+        .text-button {
+            color: #2563eb;
+
+            font-size: 13px;
+
+            font-weight: 900;
+        }
+
+
+        /* =====================================================
+           PROGRAM
+        ===================================================== */
+
+        .program-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap: 20px;
+        }
+
+        .program-card {
+            position: relative;
+
+            padding: 27px;
+
+            background: white;
+
+            border:
+                1px solid #e5ebf4;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            transition: .3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 20px 45px
+                rgba(36,72,120,.12);
+        }
+
+        .program-number {
+            position: absolute;
+
+            top: 15px;
+            right: 18px;
+
+            color: #dce7f6;
+
+            font-size: 30px;
+
+            font-weight: 900;
+        }
+
+        .program-icon {
+            width: 50px;
+            height: 50px;
+
+            display: grid;
+
+            place-items: center;
+
+            margin-bottom: 20px;
+
+            border-radius: 15px;
+
+            background: #edf5ff;
+
+            font-size: 22px;
+        }
+
+        .program-card h3 {
+            color: #07152f;
+
+            font-size: 18px;
+        }
+
+        .program-card p {
+            margin:
+                9px 0 18px;
+
+            color: #718096;
+
+            font-size: 12px;
+        }
+
+        .program-card a {
+            color: #2563eb;
+
+            font-size: 11px;
+
+            font-weight: 900;
+        }
+
+
+        /* =====================================================
+           NEWS
+        ===================================================== */
+
+        .news-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 22px;
+        }
+
+        .news-card {
+            background: white;
+
+            border:
+                1px solid #e5ebf3;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            transition: .3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 20px 45px
+                rgba(36,72,120,.12);
+        }
+
+        .news-image {
+            height: 190px;
+
+            display: grid;
+
+            place-items: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #dbeafe,
+                    #cffafe
+                );
+
+            font-size: 55px;
+        }
+
+        .news-content {
+            padding: 23px;
+        }
+
+        .news-content small {
+            color: #2563eb;
+
+            font-size: 10px;
+
+            font-weight: 800;
+        }
+
+        .news-content h3 {
+            margin: 8px 0;
+
+            color: #07152f;
+
+            font-size: 17px;
+
+            line-height: 1.35;
+        }
+
+        .news-content p {
+            color: #718096;
+
+            font-size: 12px;
+
+            margin-bottom: 16px;
+        }
+
+        .news-content a {
+            color: #2563eb;
+
+            font-size: 11px;
+
+            font-weight: 900;
+        }
+
+
+        /* =====================================================
+           AGENDA
+        ===================================================== */
+
+        .agenda-list {
+            max-width: 850px;
+
+            margin: auto;
+
+            display: grid;
+
+            gap: 15px;
+        }
+
+        .agenda-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 22px;
+
+            padding: 20px;
+
+            background: white;
+
+            border:
+                1px solid #e5ebf3;
+
+            border-radius: 18px;
+
+            transition: .25s;
+        }
+
+        .agenda-item:hover {
+            transform: translateX(5px);
+
+            border-color: #b9cef0;
+        }
+
+        .agenda-date {
+            width: 65px;
+
+            flex-shrink: 0;
+
+            padding: 9px;
+
+            text-align: center;
+
+            border-radius: 14px;
+
+            background: #edf5ff;
+
+            color: #2563eb;
+        }
+
+        .agenda-date strong {
+            display: block;
+
+            font-size: 25px;
+
+            line-height: 1;
+        }
+
+        .agenda-date span {
+            font-size: 9px;
+
+            font-weight: 900;
+        }
+
+        .agenda-label {
+            color: #2563eb;
+
+            font-size: 9px;
+
+            font-weight: 900;
+
+            letter-spacing: 1px;
+        }
+
+        .agenda-item h3 {
+            margin: 3px 0;
+
+            color: #07152f;
+
+            font-size: 16px;
+        }
+
+        .agenda-item p {
+            color: #718096;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           GALLERY
+        ===================================================== */
+
+        .gallery {
+            display: grid;
+
+            grid-template-columns:
+                1.5fr 1fr 1fr;
+
+            grid-auto-rows: 180px;
+
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1d4ed8,
+                    #06b6d4
+                );
+
+            transition: .3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item span {
+            font-size: 45px;
+
+            margin-bottom: 5px;
+        }
+
+        .gallery-item.large {
+            grid-row: span 2;
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .cta {
+            padding: 75px 0;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #07152f,
+                    #1d4ed8
+                );
+        }
+
+        .cta-content {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .cta-content > div > span {
+            color: #67e8f9;
+
+            font-size: 10px;
+
+            font-weight: 900;
+
+            letter-spacing: 1.5px;
+        }
+
+        .cta h2 {
+            max-width: 650px;
+
+            margin-top: 8px;
+
+            color: white;
+
+            font-size: 38px;
+
+            line-height: 1.15;
+        }
+
+        .btn-white {
+            flex-shrink: 0;
+
+            background: white;
+
+            color: #1d4ed8;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns:
+                .8fr 1.2fr;
+
+            gap: 80px;
+
+            align-items: start;
+        }
+
+        .contact-description {
+            color: #64748b;
+
+            font-size: 14px;
+
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            display: grid;
+
+            gap: 20px;
+        }
+
+        .contact-info strong {
+            color: #07152f;
+
+            font-size: 13px;
+        }
+
+        .contact-info p {
+            color: #718096;
+
+            font-size: 12px;
+
+            margin-top: 3px;
+        }
+
+        .contact-form {
+            padding: 30px;
+
+            background: #f7faff;
+
+            border:
+                1px solid #e5ebf3;
+
+            border-radius: 22px;
+        }
+
+        .form-row {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 15px;
+        }
+
+        .contact-form > div {
+            margin-bottom: 18px;
+        }
+
+        .contact-form label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #526075;
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+
+            border:
+                1px solid #dce5f1;
+
+            border-radius: 10px;
+
+            padding: 12px;
+
+            outline: none;
+
+            background: white;
+
+            font-size: 13px;
+        }
+
+        .contact-form textarea {
+            min-height: 130px;
+
+            resize: vertical;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #60a5fa;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(37,99,235,.08);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            padding-top: 55px;
+
+            background: #061329;
+
+            color: #9fb0c9;
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr 1fr;
+
+            gap: 40px;
+
+            padding-bottom: 45px;
+        }
+
+        .footer-logo {
+            color: white;
+
+            font-size: 27px;
+
+            font-weight: 900;
+        }
+
+        .footer-grid p {
+            max-width: 350px;
+
+            margin-top: 10px;
+
+            color: #8495b0;
+
+            font-size: 12px;
+        }
+
+        .footer-grid h4 {
+            margin-bottom: 13px;
+
+            color: white;
+
+            font-size: 13px;
+        }
+
+        .footer-grid > div > a {
+            display: block;
+
+            margin: 7px 0;
+
+            color: #8495b0;
+
+            font-size: 11px;
+        }
+
+        .footer-grid > div > a:hover {
+            color: white;
+        }
+
+        .social {
+            display: flex;
+
+            gap: 8px;
+        }
+
+        .social a {
+            width: 35px;
+            height: 35px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 10px;
+
+            background:
+                rgba(255,255,255,.07);
+
+            color: white;
+
+            font-size: 10px;
+
+            font-weight: 800;
+        }
+
+        .footer-bottom {
+            padding: 18px 0;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,.08);
+
+            font-size: 10px;
+
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           ANIMATION
+        ===================================================== */
+
+        .reveal {
+            opacity: 0;
+
+            transform:
+                translateY(30px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width: 1000px) {
+
+            .hero-decoration,
+            .hero-card,
+            .floating-card {
+                display: none;
+            }
+
+            .program-grid {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .stat-card:nth-child(2) {
+                border-right: none;
+            }
+
+            .stat-card:nth-child(-n+2) {
+                border-bottom:
+                    1px solid #edf1f6;
+            }
+        }
+
+
+        @media(max-width: 800px) {
+
+            .nav-menu {
+                display: none;
+
+                position: absolute;
+
+                top: 78px;
+
+                left: 0;
+                right: 0;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 0;
+
+                padding: 15px 4%;
+
+                background: white;
+
+                border-bottom:
+                    1px solid #e8edf5;
+
+                box-shadow:
+                    0 15px 30px
+                    rgba(0,0,0,.08);
+            }
+
+            .nav-menu.show {
+                display: flex;
+            }
+
+            .nav-menu a {
+                width: 100%;
+
+                padding: 12px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .profile-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+            }
+
+            .news-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .cta-content {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .footer-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+        }
+
+
+        @media(max-width: 600px) {
+
+            .hero {
+                min-height: 680px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+
+                letter-spacing: -2px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .stats-grid,
+            .program-grid,
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-card {
+                border-right: none;
+
+                border-bottom:
+                    1px solid #edf1f6;
+            }
+
+            .stat-card:last-child {
+                border-bottom: none;
+            }
+
+            .section {
+                padding: 75px 0;
+            }
+
+            .section-heading h2 {
+                font-size: 32px;
+            }
+
+            .check-list {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns:
+                    1fr 1fr;
+
+                grid-auto-rows: 150px;
+            }
+
+            .gallery-item.large {
+                grid-row: span 1;
+
+                grid-column: span 2;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="header">
+
+    <div class="container navbar">
+
+        <a href="#home" class="logo">
+
+            <div class="logo-icon">
+                UB
+            </div>
+
+            <div class="logo-text">
+
+                <strong>UBHI</strong>
+
+                <span>
+                    Universitas Bhinneka PGRI
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <nav class="nav-menu" id="navMenu">
+
+            <a href="#home" class="active">
+                Beranda
+            </a>
+
+            <a href="#profil">
+                Profil
+            </a>
+
+            <a href="#program">
+                Program
+            </a>
+
+            <a href="#berita">
+                Berita
+            </a>
+
+            <a href="#agenda">
+                Agenda
+            </a>
+
+            <a href="#galeri">
+                Galeri
+            </a>
+
+            <a href="#kontak">
+                Kontak
+            </a>
+
+        </nav>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Menu"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="home">
+
+    <div class="grid-background"></div>
+
+    <div class="hero-decoration"></div>
+
+
+    <div class="container hero-content">
+
+        <div class="hero-text">
+
+            <div class="hero-badge">
+                🎓 SELAMAT DATANG DI UBHI
+            </div>
+
+
+            <h1>
+
+                Membangun Generasi
+
+                <span>
+                    Unggul & Berkarakter
+                </span>
+
+                untuk Masa Depan
+
+            </h1>
+
+
+            <p>
+
+                Universitas Bhinneka PGRI hadir untuk
+                menghasilkan lulusan yang kompeten,
+                inovatif, profesional, dan memiliki
+                kepedulian terhadap masyarakat.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#profil"
+                    class="btn btn-primary"
+                >
+                    Kenal Lebih Dekat →
+                </a>
+
+
+                <a
+                    href="#program"
+                    class="btn btn-outline"
+                >
+                    Program Studi
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DASHBOARD DEKORASI -->
+
+    <div class="hero-card">
+
+        <div class="browser-bar">
+
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+
+        </div>
+
+
+        <div class="dashboard">
+
+            <div class="dashboard-top">
+
+                <div class="dashboard-title">
+                    UBHI Digital Campus
+                </div>
+
+                <div class="dashboard-badge">
+                    ACTIVE
+                </div>
+
+            </div>
+
+
+            <div style="
+                color:#9fb0ca;
+                font-size:10px;
+                margin-bottom:5px;
+            ">
+                Aktivitas Akademik
+            </div>
+
+
+            <div class="chart">
+
+                <div
+                    class="bar"
+                    style="height:35%"
+                ></div>
+
+                <div
+                    class="bar"
+                    style="height:48%"
+                ></div>
+
+                <div
+                    class="bar"
+                    style="height:43%"
+                ></div>
+
+                <div
+                    class="bar"
+                    style="height:68%"
+                ></div>
+
+                <div
+                    class="bar"
+                    style="height:62%"
+                ></div>
+
+                <div
+                    class="bar"
+                    style="height:82%"
+                ></div>
+
+                <div
+                    class="bar"
+                    style="height:95%"
+                ></div>
+
+            </div>
+
+
+            <div class="dashboard-cards">
+
+                <div class="dashboard-mini">
+                    <strong>AI</strong>
+                    <span>
+                        Artificial Intelligence
+                    </span>
+                </div>
+
+                <div class="dashboard-mini">
+                    <strong>WEB</strong>
+                    <span>
+                        Web Development
+                    </span>
+                </div>
+
+                <div class="dashboard-mini">
+                    <strong>IoT</strong>
+                    <span>
+                        Smart Technology
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="floating-card">
+
+        <div class="floating-icon">
+            ✦
+        </div>
+
+        <div>
+
+            <strong>
+                Learn • Innovate • Impact
+            </strong>
+
+            <span>
+                Berkarya untuk masa depan
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-scroll">
+
+        <span>
+            Scroll untuk melihat lebih banyak
+        </span>
+
+        ↓
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STATISTIK
+========================================================= -->
+
+<section class="stats">
+
+    <div class="container stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎓
+            </div>
+
+            <strong
+                class="counter"
+                data-target="5000"
+            >
+                0
+            </strong>
+
+            <span>
+                Mahasiswa
+            </span>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                👨‍🏫
+            </div>
+
+            <strong
+                class="counter"
+                data-target="150"
+            >
+                0
+            </strong>
+
+            <span>
+                Dosen
+            </span>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📚
+            </div>
+
+            <strong
+                class="counter"
+                data-target="20"
+            >
+                0
+            </strong>
+
+            <span>
+                Program Studi
+            </span>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🏆
+            </div>
+
+            <strong
+                class="counter"
+                data-target="50"
+            >
+                0
+            </strong>
+
+            <span>
+                Prestasi
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROFIL
+========================================================= -->
+
+<section
+    class="section"
+    id="profil"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                PROFIL KAMPUS
+            </span>
+
+            <h2>
+                Pendidikan untuk
+                <em>masa depan</em>
+            </h2>
+
+            <p>
+                Kami percaya bahwa pendidikan bukan
+                hanya tentang pengetahuan, tetapi juga
+                karakter, kreativitas, dan kemampuan
+                memberikan manfaat bagi masyarakat.
+            </p>
+
+        </div>
+
+
+        <div class="profile-grid">
+
+            <div class="profile-image">
+
+                <div class="image-box">
+
+                    <div class="building-icon">
+                        🏫
+                    </div>
+
+                    <h3>
+                        Universitas Bhinneka PGRI
+                    </h3>
+
+                    <p>
+                        Kampus pendidikan dan inovasi
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-content">
+
+                <span class="small-title">
+                    TENTANG KAMI
+                </span>
+
+
+                <h3>
+                    Menciptakan lingkungan belajar
+                    yang inspiratif
+                </h3>
+
+
+                <p>
+                    Universitas Bhinneka PGRI berkomitmen
+                    menyelenggarakan pendidikan tinggi
+                    yang berkualitas serta mendukung
+                    pengembangan ilmu pengetahuan,
+                    teknologi, dan karakter mahasiswa.
+                </p>
+
+
+                <p>
+                    Melalui pembelajaran, penelitian,
+                    dan pengabdian kepada masyarakat,
+                    kampus terus mendorong lahirnya
+                    inovasi yang memberikan dampak positif.
+                </p>
+
+
+                <div class="check-list">
+
+                    <div>
+                        ✓ Pendidikan berkualitas
+                    </div>
+
+                    <div>
+                        ✓ Riset dan inovasi
+                    </div>
+
+                    <div>
+                        ✓ Pengembangan karakter
+                    </div>
+
+                    <div>
+                        ✓ Kolaborasi masyarakat
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="#kontak"
+                    class="text-button"
+                >
+                    Selengkapnya →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROGRAM STUDI
+========================================================= -->
+
+<section
+    class="section section-light"
+    id="program"
+>
+
+    <div class="container">
+
+        <div class="section-heading center">
+
+            <span>
+                PROGRAM UNGGULAN
+            </span>
+
+            <h2>
+                Pilihan Program
+                <em>Studi</em>
+            </h2>
+
+            <p>
+                Temukan bidang keilmuan yang sesuai
+                dengan minat dan masa depan Anda.
+            </p>
+
+        </div>
+
+
+        <div class="program-grid">
+
+
+            <article class="program-card">
+
+                <div class="program-number">
+                    01
+                </div>
+
+                <div class="program-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Informatika
+                </h3>
+
+                <p>
+                    Software Engineering, Artificial
+                    Intelligence, Data, Web, Mobile,
+                    dan teknologi komputasi.
+                </p>
+
+                <a href="#">
+                    Lihat Program →
+                </a>
+
+            </article>
+
+
+            <article class="program-card">
+
+                <div class="program-number">
+                    02
+                </div>
+
+                <div class="program-icon">
+                    📊
+                </div>
+
+                <h3>
+                    Manajemen
+                </h3>
+
+                <p>
+                    Mengembangkan kompetensi manajemen,
+                    bisnis, kewirausahaan, dan organisasi.
+                </p>
+
+                <a href="#">
+                    Lihat Program →
+                </a>
+
+            </article>
+
+
+            <article class="program-card">
+
+                <div class="program-number">
+                    03
+                </div>
+
+                <div class="program-icon">
+                    🧑‍⚕️
+                </div>
+
+                <h3>
+                    Kesehatan
+                </h3>
+
+                <p>
+                    Pendidikan kesehatan dengan pendekatan
+                    profesional dan berbasis kebutuhan masyarakat.
+                </p>
+
+                <a href="#">
+                    Lihat Program →
+                </a>
+
+            </article>
+
+
+            <article class="program-card">
+
+                <div class="program-number">
+                    04
+                </div>
+
+                <div class="program-icon">
+                    👩‍🏫
+                </div>
+
+                <h3>
+                    Pendidikan
+                </h3>
+
+                <p>
+                    Mempersiapkan pendidik yang kompeten,
+                    kreatif, dan adaptif terhadap perubahan.
+                </p>
+
+                <a href="#">
+                    Lihat Program →
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     BERITA
+========================================================= -->
+
+<section
+    class="section"
+    id="berita"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                INFORMASI TERKINI
+            </span>
+
+            <h2>
+                Berita &
+                <em>Informasi</em>
+            </h2>
+
+            <p>
+                Informasi terbaru mengenai kegiatan
+                akademik dan kemahasiswaan.
+            </p>
+
+        </div>
+
+
+        <div class="news-grid">
+
+
+            <article class="news-card">
+
+                <div class="news-image">
+                    🎓
+                </div>
+
+                <div class="news-content">
+
+                    <small>
+                        14 Oktober 2026
+                    </small>
+
+                    <h3>
+                        Universitas Bhinneka PGRI
+                        terus meningkatkan kualitas pendidikan
+                    </h3>
+
+                    <p>
+                        Berbagai program inovasi pendidikan
+                        terus dikembangkan untuk mendukung
+                        mahasiswa.
+                    </p>
+
+                    <a href="#">
+                        Baca Selengkapnya →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="news-card">
+
+                <div class="news-image">
+                    💻
+                </div>
+
+                <div class="news-content">
+
+                    <small>
+                        12 Oktober 2026
+                    </small>
+
+                    <h3>
+                        Mahasiswa Informatika
+                        mengembangkan inovasi digital
+                    </h3>
+
+                    <p>
+                        Kreativitas mahasiswa diwujudkan
+                        melalui berbagai proyek teknologi.
+                    </p>
+
+                    <a href="#">
+                        Baca Selengkapnya →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="news-card">
+
+                <div class="news-image">
+                    🏆
+                </div>
+
+                <div class="news-content">
+
+                    <small>
+                        10 Oktober 2026
+                    </small>
+
+                    <h3>
+                        Prestasi mahasiswa kembali
+                        mengharumkan nama kampus
+                    </h3>
+
+                    <p>
+                        Mahasiswa berhasil meraih prestasi
+                        dalam berbagai kompetisi.
+                    </p>
+
+                    <a href="#">
+                        Baca Selengkapnya →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     AGENDA
+========================================================= -->
+
+<section
+    class="section section-light"
+    id="agenda"
+>
+
+    <div class="container">
+
+        <div class="section-heading center">
+
+            <span>
+                AGENDA
+            </span>
+
+            <h2>
+                Agenda
+                <em>Kampus</em>
+            </h2>
+
+        </div>
+
+
+        <div class="agenda-list">
+
+
+            <div class="agenda-item">
+
+                <div class="agenda-date">
+
+                    <strong>
+                        20
+                    </strong>
+
+                    <span>
+                        OKT
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <span class="agenda-label">
+                        SEMINAR
+                    </span>
+
+                    <h3>
+                        Seminar Nasional Teknologi
+                        dan Inovasi Digital
+                    </h3>
+
+                    <p>
+                        📍 Aula Universitas Bhinneka PGRI
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="agenda-item">
+
+                <div class="agenda-date">
+
+                    <strong>
+                        25
+                    </strong>
+
+                    <span>
+                        OKT
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <span class="agenda-label">
+                        AKADEMIK
+                    </span>
+
+                    <h3>
+                        Workshop Pengembangan
+                        Kompetensi Mahasiswa
+                    </h3>
+
+                    <p>
+                        📍 Laboratorium Komputer
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="agenda-item">
+
+                <div class="agenda-date">
+
+                    <strong>
+                        02
+                    </strong>
+
+                    <span>
+                        NOV
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <span class="agenda-label">
+                        KEMAHASISWAAN
+                    </span>
+
+                    <h3>
+                        Expo Kreativitas Mahasiswa
+                    </h3>
+
+                    <p>
+                        📍 Gedung Kampus UBHI
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     GALERI
+========================================================= -->
+
+<section
+    class="section"
+    id="galeri"
+>
+
+    <div class="container">
+
+        <div class="section-heading center">
+
+            <span>
+                GALERI
+            </span>
+
+            <h2>
+                Aktivitas
+                <em>Kampus</em>
+            </h2>
+
+        </div>
+
+
+        <div class="gallery">
+
+            <div class="gallery-item large">
+
+                <span>
+                    🎓
+                </span>
+
+                Wisuda
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <span>
+                    💻
+                </span>
+
+                Praktikum
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <span>
+                    🤝
+                </span>
+
+                Kolaborasi
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <span>
+                    🏆
+                </span>
+
+                Prestasi
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <span>
+                    🔬
+                </span>
+
+                Penelitian
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CALL TO ACTION
+========================================================= -->
+
+<section class="cta">
+
+    <div class="container cta-content">
+
+        <div>
+
+            <span>
+                MULAI PERJALANAN ANDA
+            </span>
+
+            <h2>
+                Bersama kita ciptakan
+                masa depan yang lebih baik.
+            </h2>
+
+        </div>
+
+
+        <a
+            href="#kontak"
+            class="btn btn-white"
+        >
+            Hubungi Kami →
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     KONTAK
+========================================================= -->
+
+<section
+    class="section"
+    id="kontak"
+>
+
+    <div class="container contact-grid">
+
+
+        <div>
+
+            <div class="section-heading">
+
+                <span>
+                    KONTAK
+                </span>
+
+                <h2>
+                    Hubungi
+                    <em>Kami</em>
+                </h2>
+
+            </div>
+
+
+            <p class="contact-description">
+
+                Silakan hubungi kami untuk mendapatkan
+                informasi lebih lanjut mengenai program
+                pendidikan, pendaftaran, kegiatan,
+                dan kerja sama.
+
+            </p>
+
+
+            <div class="contact-info">
+
+                <div>
+
+                    <strong>
+                        📍 Alamat
+                    </strong>
+
+                    <p>
+                        Universitas Bhinneka PGRI<br>
+                        Tulungagung, Jawa Timur
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        ✉️ Email
+                    </strong>
+
+                    <p>
+                        info@ubhi.ac.id
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        📞 Telepon
+                    </strong>
+
+                    <p>
+                        (0355) 123456
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <form
+            class="contact-form"
+            id="contactForm"
+        >
+
+            <div class="form-row">
+
+                <div>
+
+                    <label>
+                        Nama
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nama"
+                        placeholder="Nama lengkap"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="nama@email.com"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Subjek
+                </label>
+
+                <input
+                    type="text"
+                    id="subjek"
+                    placeholder="Subjek pesan"
+                    required
+                >
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Pesan
+                </label>
+
+                <textarea
+                    id="pesan"
+                    placeholder="Tulis pesan Anda..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Kirim Pesan →
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container footer-grid">
+
+
+        <div>
+
+            <div class="footer-logo">
+                UBHI
+            </div>
+
+            <p>
+
+                Universitas Bhinneka PGRI
+                berkomitmen membangun generasi
+                unggul dan berkarakter.
+
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Menu
+            </h4>
+
+            <a href="#home">
+                Beranda
+            </a>
+
+            <a href="#profil">
+                Profil
+            </a>
+
+            <a href="#program">
+                Program
+            </a>
+
+            <a href="#berita">
+                Berita
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Informasi
+            </h4>
+
+            <a href="#">
+                Penerimaan Mahasiswa
+            </a>
+
+            <a href="#">
+                Akademik
+            </a>
+
+            <a href="#">
+                Kemahasiswaan
+            </a>
+
+            <a href="#">
+                Alumni
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Ikuti Kami
+            </h4>
+
+            <div class="social">
+
+                <a href="#">
+                    IG
+                </a>
+
+                <a href="#">
+                    FB
+                </a>
+
+                <a href="#">
+                    YT
+                </a>
+
+                <a href="#">
+                    IN
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            © <span id="year"></span>
+            Universitas Bhinneka PGRI.
+            All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const navMenu =
+        document.getElementById("navMenu");
+
+
+    menuToggle.addEventListener("click", function () {
+
+        navMenu.classList.toggle("show");
+
+    });
+
+
+    /* Tutup menu ketika link diklik */
+
+    const navLinks =
+        document.querySelectorAll(".nav-menu a");
+
+
+    navLinks.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navMenu.classList.remove("show");
+
+        });
+
+    });
+
+
+
+    /* =====================================================
+       ACTIVE MENU SAAT SCROLL
+    ===================================================== */
+
+    const sections =
+        document.querySelectorAll("section[id]");
+
+
+    window.addEventListener("scroll", function () {
+
+        let currentSection = "";
+
+
+        sections.forEach(function (section) {
+
+            const sectionTop =
+                section.offsetTop - 160;
+
+            const sectionHeight =
+                section.offsetHeight;
+
+
+            if (
+                window.scrollY >= sectionTop &&
+                window.scrollY <
+                sectionTop + sectionHeight
+            ) {
+
+                currentSection =
+                    section.getAttribute("id");
+
+            }
+
+        });
+
+
+        navLinks.forEach(function (link) {
+
+            link.classList.remove("active");
+
+
+            if (
+                link.getAttribute("href") ===
+                "#" + currentSection
+            ) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    });
+
+
+
+    /* =====================================================
+       ANIMATION SCROLL
+    ===================================================== */
+
+    const revealElements =
+        document.querySelectorAll(
+            ".program-card, " +
+            ".news-card, " +
+            ".agenda-item, " +
+            ".gallery-item, " +
+            ".profile-grid, " +
+            ".section-heading, " +
+            ".contact-grid"
+        );
+
+
+    const revealObserver =
+        new IntersectionObserver(
+            function (entries) {
+
+                entries.forEach(function (entry) {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.classList.add(
+                            "show"
+                        );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+    revealElements.forEach(function (element) {
+
+        element.classList.add("reveal");
+
+        revealObserver.observe(element);
+
+    });
+
+
+
+    /* =====================================================
+       COUNTER STATISTIK
+    ===================================================== */
+
+    const counters =
+        document.querySelectorAll(
+            ".counter"
+        );
+
+
+    let counterStarted = false;
+
+
+    function startCounter() {
+
+        if (counterStarted) {
+            return;
+        }
+
+        counterStarted = true;
+
+
+        counters.forEach(function (counter) {
+
+            const target =
+                Number(
+                    counter.dataset.target
+                );
+
+
+            let current = 0;
+
+
+            const increment =
+                target / 100;
+
+
+            function updateCounter() {
+
+                current += increment;
+
+
+                if (current < target) {
+
+                    counter.textContent =
+                        Math.floor(current)
+                        .toLocaleString("id-ID");
+
+
+                    requestAnimationFrame(
+                        updateCounter
+                    );
+
+                } else {
+
+                    counter.textContent =
+                        target
+                        .toLocaleString("id-ID")
+                        + "+";
+
+                }
+
+            }
+
+
+            updateCounter();
+
+        });
+
+    }
+
+
+    const statsSection =
+        document.querySelector(".stats");
+
+
+    const counterObserver =
+        new IntersectionObserver(
+            function (entries) {
+
+                if (
+                    entries[0].isIntersecting
+                ) {
+
+                    startCounter();
+
+                    counterObserver.disconnect();
+
+                }
+
+            },
+            {
+                threshold: .3
+            }
+        );
+
+
+    counterObserver.observe(
+        statsSection
+    );
+
+
+
+    /* =====================================================
+       FORM KONTAK
+    ===================================================== */
+
+    const contactForm =
+        document.getElementById(
+            "contactForm"
+        );
+
+
+    contactForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            const nama =
+                document.getElementById(
+                    "nama"
+                ).value;
+
+
+            alert(
+                "Terima kasih, " +
+                nama +
+                "! Pesan Anda berhasil dikirim."
+            );
+
+
+            contactForm.reset();
+
+        }
+    );
+
+
+
+    /* =====================================================
+       TAHUN FOOTER
+    ===================================================== */
+
+    document.getElementById(
+        "year"
+    ).textContent =
+        new Date().getFullYear();
+
+</script>
+
+
+</body>
+</html>
